@@ -87,34 +87,34 @@ lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 
 
 2.Salary Data
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/302eaa95-851f-41f2-a17d-fb9191cf40a4)
 
-image
 3. Checking the null function()
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/99f359dd-8eaf-448f-9f06-25797429226b)
 
-image
 4.Data Duplicate
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/e6f329f7-c4cc-4ed7-8d48-8b385e896a8c)
 
-image
 5.Print Data
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/0047f6d0-bce1-42b3-8f03-baad0fe1aafc)
 
-image image
 6.Data Status
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/bb30bffc-1ae0-461a-a49c-ffaa72a2d86a)
 
-image
 7.y_prediction array
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/91050a54-405b-438d-9042-7ec1ac739a3d)
 
-image
 8.Accuracy value
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/038e7496-21c5-4276-9794-60bc262fd93d)
 
-image
 9.Confusion matrix
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/ab8aefbb-8974-4f29-b6ac-1985cbacf218)
 
-image
 10.Classification Report
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/24011a87-e892-4e6d-a931-1d79d6211fe6)
 
-image
 11.Prediction of LR
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/39fd1e28-b5f1-4e67-bf6a-112068a26910)
 
-image
 # Result:
 Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
