@@ -85,7 +85,6 @@ lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 1.Placement Data
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/8a616a19-f88d-4701-842e-ec39f92cca80)
 
-
 2.Salary Data
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/302eaa95-851f-41f2-a17d-fb9191cf40a4)
 
