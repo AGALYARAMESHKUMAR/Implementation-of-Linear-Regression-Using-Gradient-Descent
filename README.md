@@ -82,37 +82,43 @@ print(classification_report1)
 lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 ```
 # Output:
-1.Placement Data
+# 1.Placement Data
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/8a616a19-f88d-4701-842e-ec39f92cca80)
 
-2.Salary Data
+# 2.Salary Data
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/302eaa95-851f-41f2-a17d-fb9191cf40a4)
 
-3. Checking the null function()
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/99f359dd-8eaf-448f-9f06-25797429226b)
+# 3. Checking the null function()
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/844faf94-42ee-4bb4-a075-bd04296bfec1)
 
-4.Data Duplicate
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/e6f329f7-c4cc-4ed7-8d48-8b385e896a8c)
 
-5.Print Data
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/0047f6d0-bce1-42b3-8f03-baad0fe1aafc)
+# 4.Data Duplicate
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/12281383-aefc-4d1a-a6b2-b3d491d9cfd1)
 
-6.Data Status
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/bb30bffc-1ae0-461a-a49c-ffaa72a2d86a)
+# 5.Print Data
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/c574996f-bf40-467f-b2f9-ac040593796f)
 
-7.y_prediction array
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/91050a54-405b-438d-9042-7ec1ac739a3d)
 
-8.Accuracy value
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/038e7496-21c5-4276-9794-60bc262fd93d)
+# 6.Data Status
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/23ca6c55-f214-4762-af56-a7de16bafb0f)
 
-9.Confusion matrix
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/ab8aefbb-8974-4f29-b6ac-1985cbacf218)
 
-10.Classification Report
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/24011a87-e892-4e6d-a931-1d79d6211fe6)
+# 7.y_prediction array
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/620ed83b-e547-4e33-80d5-ba4daff3e98a)
 
-11.Prediction of LR
+
+# 8.Accuracy value
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/b8e4067a-a911-48c7-a8f8-1f5877ce3427)
+
+
+# 9.Confusion matrix
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/ea0dab2a-dd0b-4c3b-ab99-3091bfa9024a)
+
+# 10.Classification Report
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/b8415521-6720-41cf-9184-2edb81f0e474)
+
+
+# 11.Prediction of LR
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/39fd1e28-b5f1-4e67-bf6a-112068a26910)
 
 # Result:
