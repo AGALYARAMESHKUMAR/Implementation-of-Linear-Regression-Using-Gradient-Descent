@@ -88,7 +88,7 @@ lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
 # 2.Salary Data
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/302eaa95-851f-41f2-a17d-fb9191cf40a4)
 
-# 3. Checking the null function()
+#      3. Checking the null function()
 ![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/844faf94-42ee-4bb4-a075-bd04296bfec1)
 
 
