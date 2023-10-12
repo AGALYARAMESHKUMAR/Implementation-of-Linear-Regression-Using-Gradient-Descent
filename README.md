@@ -1,125 +1,142 @@
 # Implementation-of-Linear-Regression-Using-Gradient-Descent
-
 # AIM:
 
-To write a program to implement the the Logistic Regression Model to Predict the Placement Status of Student.
-Equipments Required:
+To write a program to predict the profit of a city using the linear regression model with gradient descent.
+# Equipments Required:
 
-    Hardware – PCs
-    Anaconda – Python 3.7 Installation / Jupyter notebook
+   1. Hardware – PCs
+   2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 # Algorithm
-# Steps involved
 
-1.Data Preparation: The first step is to prepare the data for the model. This involves cleaning the data, handling missing values and outliers, and transforming the data into a suitable format for the model.
+    1. Import the required library and read the dataframe.
 
-2.Split the data: Split the data into training and testing sets. The training set is used to fit the model, while the testing set is used to evaluate the model's performance.
+    2. Write a function computeCost to generate the cost function.
 
-3.Define the model: The next step is to define the logistic regression model. This involves selecting the appropriate features, specifying the regularization parameter, and defining the loss function.
+    3. Perform iterations og gradient steps with learning rate.
 
-4.Train the model: Train the model using the training data. This involves minimizing the loss function by adjusting the model's parameters.
+    4. Plot the Cost function using Gradient Descent and generate the required graph.
 
-5.Evaluate the model: Evaluate the model's performance using the testing data. This involves calculating the model's accuracy, precision, recall, and F1 score.
-
-6.Tune the model: If the model's performance is not satisfactory, you can tune the model by adjusting the regularization parameter, selecting different features, or using a different algorithm.
-
-7.Predict new data: Once the model is trained and tuned, you can use it to predict new data. This involves applying the model to the new data and obtaining the predicted outcomes.
-
-8.Interpret the results: Finally, you can interpret the model's results to gain insight into the relationship between the input variables and the output variable. This can help you understand the factors that influence the outcome and make informed decisions based on the results.
 # Program:
 ```
+/*
+Program to implement the linear regression using gradient descent.
+Developed by: Kothai K
+RegisterNumber:  212222240051
+*/
+import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
-data=pd.read_csv("/content/Placement_Data.csv")
-data.head()
+data=pd.read_csv("/content/ex1.txt",header = None)
 
-data1=data.copy()
-data1=data1.drop(["sl_no","salary"],axis=1)#Browses the specified row or column
-data1.head()
+plt.scatter(data[0],data[1])
+plt.xticks(np.arange(5,30,step=5))
+plt.yticks(np.arange(-5,30,step=5))
+plt.xlabel("Population of City(10,000s)")
+plt.ylabel("Profit ($10,000)")
+plt.title("Profit Prediction")
 
-data1.isnull().sum()
+def computeCost(X,y,theta):
+  """
+  Take in a numpy array X,y,theta and generate the cost function of using the in a linear regression model
+  """
+  m=len(y) # length of the training data
+  h=X.dot(theta) #hypothesis
+  square_err=(h-y)**2
 
-data1.duplicated().sum()
+  return 1/(2*m) * np.sum(square_err) #returning J
 
-from sklearn.preprocessing import LabelEncoder
-le=LabelEncoder()
-data1["gender"]=le.fit_transform(data1["gender"])
-data1["ssc_b"]=le.fit_transform(data1["ssc_b"])
-data1["hsc_b"]=le.fit_transform(data1["hsc_b"])
-data1["hsc_s"]=le.fit_transform(data1["hsc_s"])
-data1["degree_t"]=le.fit_transform(data1["degree_t"])
-data1["workex"]=le.fit_transform(data1["workex"])
-data1["specialisation"]=le.fit_transform(data1["specialisation"] )     
-data1["status"]=le.fit_transform(data1["status"])       
-data1 
+data_n=data.values
+m=data_n[:,0].size
+X=np.append(np.ones((m,1)),data_n[:,0].reshape(m,1),axis=1)
+y=data_n[:,1].reshape(m,1)
+theta=np.zeros((2,1))
+computeCost(X,y,theta) #Call the function
 
-x=data1.iloc[:,:-1]
-x
+from matplotlib.container import ErrorbarContainer
+from IPython.core.interactiveshell import error
+def gradientDescent(X,y,theta,alpha,num_iters):
+    """
+    Take the numpy array X,y,theta and update theta by taking the num_tiers gradient with learning rate of alpha
 
-y=data1["status"]
-y
+    return theta and the list of the cost of theta during each iteration
+    """
 
-from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
+    m=len(y)
+    J_history=[]
 
-from sklearn.linear_model import LogisticRegression
-lr=LogisticRegression(solver="liblinear")
-lr.fit(x_train,y_train)
-y_pred=lr.predict(x_test)
-y_pred
+    for i in range(num_iters):
+      predictions=X.dot(theta)
+      error=np.dot(X.transpose(),(predictions -y))
+      descent=alpha *1/m*error
+      theta-=descent
+      J_history.append(computeCost(X,y,theta))
 
-from sklearn.metrics import accuracy_score
-accuracy=accuracy_score(y_test,y_pred)
-accuracy
+    return theta,J_history
 
-from sklearn.metrics import confusion_matrix
-confusion=confusion_matrix(y_test,y_pred)
-confusion
+theta,J_history = gradientDescent(X,y,theta,0.01,1500)
+print("h(x)="+str(round(theta[0,0],2))+"+"+str(round(theta[1,0],2))+"x1")
 
-from sklearn.metrics import classification_report
-classification_report1 = classification_report(y_test,y_pred)
-print(classification_report1)
+#Testing the implementation
+plt.plot(J_history)
+plt.xlabel("Iteration")
+plt.ylabel("$J(\Theta)$")
+plt.title("Cost function using Gradient Descent")
 
-lr.predict([[1,80,1,90,1,1,90,1,0,85,1,85]])
+
+plt.scatter(data[0],data[1])
+x_value=[x for x in range(25)]
+y_value=[y*theta[1]+theta[0] for y in x_value]
+plt.plot(x_value,y_value,color="r")
+plt.xticks(np.arange(5,30,step=5))
+plt.yticks(np.arange(-5,30,step=5))
+plt.xlabel("Population of City (10,000s)")
+plt.ylabel("Profit($10,000")
+plt.title("Profit Prediction")
+
+def predict(x,theta):
+  """
+  Tkes in numpy array of x and theta and return the predicted value of y base
+  """
+
+  predictions=np.dot(theta.transpose(),x)
+
+  return predictions[0]
+
+predict1=predict(np.array([1,3.5]),theta)*10000
+print("For population =35,000, we predict a profit of $"+str(round(predict1,0)))
+
+predict2=predict(np.array([1,7]),theta)*10000
+print("For population = 70,000, we predict a profit of $"+str(round(predict2,0)))
+
 ```
 # Output:
-# 1.Placement Data
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/8a616a19-f88d-4701-842e-ec39f92cca80)
+# Profit Prediction Graph
 
-# 2.Salary Data
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/302eaa95-851f-41f2-a17d-fb9191cf40a4)
-
-#      3. Checking the null function()
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/844faf94-42ee-4bb4-a075-bd04296bfec1)
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/30a65537-bbbc-4c74-9782-c2ecfa93f8ae)
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/7c432b0f-f861-4a31-8bcd-f15817d81fce)
 
 
-# 4.Data Duplicate
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/12281383-aefc-4d1a-a6b2-b3d491d9cfd1)
 
-# 5.Print Data
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/c574996f-bf40-467f-b2f9-ac040593796f)
+# Compute Cost Value
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/d3f855d0-98a8-4c5d-9098-1367513d9abd)
 
 
-# 6.Data Status
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/23ca6c55-f214-4762-af56-a7de16bafb0f)
+# h(x) Value
+
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/7d33cbb1-be0c-47ab-983b-30a9ec6d92cf)
+
+# Cost function using Gradient Descent Graph
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/a5798ed4-99fd-4b0d-9643-92da51cf94cf)
 
 
-# 7.y_prediction array
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/620ed83b-e547-4e33-80d5-ba4daff3e98a)
+# Profit for the Population 35,000
 
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/a2d76942-dade-4118-a2e6-528ff3d21b18)
 
-# 8.Accuracy value
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/b8e4067a-a911-48c7-a8f8-1f5877ce3427)
+# Profit for Population 70,000
+![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/4c71e668-95c8-4001-abfd-d29fb82fefc3)
 
-
-# 9.Confusion matrix
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/ea0dab2a-dd0b-4c3b-ab99-3091bfa9024a)
-
-# 10.Classification Report
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/b8415521-6720-41cf-9184-2edb81f0e474)
-
-
-# 11.Prediction of LR
-![image](https://github.com/AGALYARAMESHKUMAR/Implementation-of-Linear-Regression-Using-Gradient-Descent/assets/119394395/39fd1e28-b5f1-4e67-bf6a-112068a26910)
 
 # Result:
-Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
+Thus the program to implement the linear regression using gradient descent is written and verified using python programming.
